@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="reveal-full-page" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Dabbling in Modeling Toolkit of Julia</title>
+<meta name="author" content="kepu">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/reveal.css">
+
+<link rel="stylesheet" href="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/sky.css" id="theme">
+
+<script type="text/javascript" src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/MathJax.js"></script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body style="transition: transform 0.8s ease 0s; --slide-width: 960px; --slide-height: 700px; --slide-scale: 2;" class="reveal-viewport"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"><br></div></div><div id="MathJax_Message" style="display: none;"></div>
+<div class="reveal slide center focused has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style="cursor: none;">
+<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(2);">
+<section id="sec-title-slide" style="top: 257.5px; display: block;" class="present"><h1 class="title">Dabbling in Modeling Toolkit of Julia</h1><p class="subtitle"></p>
+<h2 class="author">kepu</h2><h2 class="date">2023-06-25 Sun 14:33</h2>
+</section>
+<style>
+.reveal  h1 {font-size:100%;}
+.reveal  h2 {font-size:100%;}
+.reveal  h3 {font-size:100%;}
+.reveal  li {font-size:80%;}
+</style>
+
+<section style="top: 0px; display: block;" aria-hidden="true" class="stack future" hidden="">
+<section id="slide-org5c291fd" style="top: 210px; display: block;">
+<h2 id="org5c291fd">The requirements of scientific computing (Faster!)</h2>
+<ul>
+<li class="fragment appear" data-fragment-index="0"><b>Ease of use</b></li>
+<li class="fragment appear" data-fragment-index="1"><b>Extensibility and flexibility</b> (Not limited in special problems)</li>
+<li class="fragment appear" data-fragment-index="2"><b>Computational efficiency</b></li>
+<li class="fragment appear" data-fragment-index="3">Community and ecosystem (engineering strengths)</li>
+
+</ul>
+
+</section>
+</section>
+<section style="top: 0px; display: block;" aria-hidden="true" class="stack future" hidden="">
+<section id="slide-org5dcc877" style="top: 316px; display: block;">
+<h2 id="org5dcc877">Principle – High level methods first</h2>
+<div class="outline-text-2" id="text-org5dcc877">
+</div>
+</section>
+<section id="slide-orgd4d26e6" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgd4d26e6">Simple thermal conduction problem</h3>
+
+<div id="org75d2ec2" class="figure">
+<p><img src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/2023-06-25_14-48-38_screenshot.png" alt="2023-06-25_14-48-38_screenshot.png">
+</p>
+</div>
+<div>
+<span class="MathJax_Preview" style="color: inherit;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mtable columnalign=&quot;right left right left right left right left right left right left&quot; rowspacing=&quot;3pt&quot; columnspacing=&quot;0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em&quot; displaystyle=&quot;true&quot;&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/msub&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;d&lt;/mi&gt;&lt;/mrow&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;d&lt;/mi&gt;&lt;/mrow&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;mi&gt;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;&amp;#x03BA;&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/msub&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/msub&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;d&lt;/mi&gt;&lt;/mrow&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;d&lt;/mi&gt;&lt;/mrow&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;mi&gt;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;&amp;#x03BA;&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/msub&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 13.763em; display: inline-block;"><span style="display: inline-block; position: relative; width: 11.089em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(-0.25em, 1010.99em, 4.488em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mtable" id="MathJax-Span-3"><span style="display: inline-block; position: relative; width: 10.736em; height: 0px; margin-right: 0.167em; margin-left: 0.167em;"><span style="position: absolute; clip: rect(2.825em, 1003.62em, 7.562em, -1000em); top: -5.444em; left: 0em;"><span style="display: inline-block; position: relative; width: 3.621em; height: 0px;"><span style="position: absolute; clip: rect(2.46em, 1003.62em, 4.83em, -1000em); top: -5.079em; right: 0em;"><span class="mtd" id="MathJax-Span-4"><span class="mrow" id="MathJax-Span-5"><span class="msubsup" id="MathJax-Span-6"><span style="display: inline-block; position: relative; width: 1.418em; height: 0px;"><span style="position: absolute; clip: rect(3.126em, 1000.76em, 4.155em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-7" style="font-family: MathJax_Math; font-style: italic;">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.045em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.715em;"><span class="mi" id="MathJax-Span-8" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.04em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span><span class="mfrac" id="MathJax-Span-9"><span style="display: inline-block; position: relative; width: 1.963em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(3.137em, 1001.84em, 4.283em, -1000em); top: -4.658em; left: 50%; margin-left: -0.921em;"><span class="mrow" id="MathJax-Span-10"><span class="texatom" id="MathJax-Span-11"><span class="mrow" id="MathJax-Span-12"><span class="mi" id="MathJax-Span-13" style="font-family: MathJax_Main;">d</span></span></span><span class="msubsup" id="MathJax-Span-14"><span style="display: inline-block; position: relative; width: 1.287em; height: 0px;"><span style="position: absolute; clip: rect(3.154em, 1000.7em, 4.133em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.584em;"><span class="mi" id="MathJax-Span-16" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.04em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; clip: rect(3.137em, 1000.89em, 4.144em, -1000em); top: -3.296em; left: 50%; margin-left: -0.459em;"><span class="mrow" id="MathJax-Span-17"><span class="texatom" id="MathJax-Span-18"><span class="mrow" id="MathJax-Span-19"><span class="mi" id="MathJax-Span-20" style="font-family: MathJax_Main;">d</span></span></span><span class="mi" id="MathJax-Span-21" style="font-family: MathJax_Math; font-style: italic;">t</span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; clip: rect(0.844em, 1001.96em, 1.21em, -1000em); top: -1.278em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.963em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.058em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; clip: rect(2.46em, 1003.33em, 4.83em, -1000em); top: -2.711em; right: 0em;"><span class="mtd" id="MathJax-Span-37"><span class="mrow" id="MathJax-Span-38"><span class="msubsup" id="MathJax-Span-39"><span style="display: inline-block; position: relative; width: 1.272em; height: 0px;"><span style="position: absolute; clip: rect(3.126em, 1000.76em, 4.155em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-40" style="font-family: MathJax_Math; font-style: italic;">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.045em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.715em;"><span class="mi" id="MathJax-Span-41" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">L</span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span><span class="mfrac" id="MathJax-Span-42"><span style="display: inline-block; position: relative; width: 1.817em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(3.137em, 1001.7em, 4.283em, -1000em); top: -4.658em; left: 50%; margin-left: -0.848em;"><span class="mrow" id="MathJax-Span-43"><span class="texatom" id="MathJax-Span-44"><span class="mrow" id="MathJax-Span-45"><span class="mi" id="MathJax-Span-46" style="font-family: MathJax_Main;">d</span></span></span><span class="msubsup" id="MathJax-Span-47"><span style="display: inline-block; position: relative; width: 1.141em; height: 0px;"><span style="position: absolute; clip: rect(3.154em, 1000.7em, 4.133em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-48" style="font-family: MathJax_Math; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.584em;"><span class="mi" id="MathJax-Span-49" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">L</span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; clip: rect(3.137em, 1000.89em, 4.144em, -1000em); top: -3.296em; left: 50%; margin-left: -0.459em;"><span class="mrow" id="MathJax-Span-50"><span class="texatom" id="MathJax-Span-51"><span class="mrow" id="MathJax-Span-52"><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Main;">d</span></span></span><span class="mi" id="MathJax-Span-54" style="font-family: MathJax_Math; font-style: italic;">t</span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; clip: rect(0.844em, 1001.82em, 1.21em, -1000em); top: -1.278em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.817em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.058em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span><span style="display: inline-block; width: 0px; height: 5.444em;"></span></span><span style="position: absolute; clip: rect(2.387em, 1007.02em, 6.057em, -1000em); top: -4.385em; left: 3.621em;"><span style="display: inline-block; position: relative; width: 7.115em; height: 0px;"><span style="position: absolute; clip: rect(3.081em, 1007.02em, 4.383em, -1000em); top: -5.079em; left: 0em;"><span class="mtd" id="MathJax-Span-22"><span class="mrow" id="MathJax-Span-23"><span class="mi" id="MathJax-Span-24"></span><span class="mo" id="MathJax-Span-25" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mo" id="MathJax-Span-26" style="font-family: MathJax_Main; padding-left: 0.278em;">−</span><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math; font-style: italic;">κ</span><span class="mo" id="MathJax-Span-28" style="font-family: MathJax_Main;">(</span><span class="msubsup" id="MathJax-Span-29"><span style="display: inline-block; position: relative; width: 1.287em; height: 0px;"><span style="position: absolute; clip: rect(3.154em, 1000.7em, 4.133em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-30" style="font-family: MathJax_Math; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.584em;"><span class="mi" id="MathJax-Span-31" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.04em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span><span class="mo" id="MathJax-Span-32" style="font-family: MathJax_Main; padding-left: 0.222em;">−</span><span class="msubsup" id="MathJax-Span-33" style="padding-left: 0.222em;"><span style="display: inline-block; position: relative; width: 1.141em; height: 0px;"><span style="position: absolute; clip: rect(3.154em, 1000.7em, 4.133em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-34" style="font-family: MathJax_Math; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.584em;"><span class="mi" id="MathJax-Span-35" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">L</span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span><span class="mo" id="MathJax-Span-36" style="font-family: MathJax_Main;">)</span></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; clip: rect(3.081em, 1006.24em, 4.383em, -1000em); top: -2.711em; left: 0em;"><span class="mtd" id="MathJax-Span-55"><span class="mrow" id="MathJax-Span-56"><span class="mi" id="MathJax-Span-57"></span><span class="mo" id="MathJax-Span-58" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mi" id="MathJax-Span-59" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;">κ</span><span class="mo" id="MathJax-Span-60" style="font-family: MathJax_Main;">(</span><span class="msubsup" id="MathJax-Span-61"><span style="display: inline-block; position: relative; width: 1.287em; height: 0px;"><span style="position: absolute; clip: rect(3.154em, 1000.7em, 4.133em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-62" style="font-family: MathJax_Math; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.584em;"><span class="mi" id="MathJax-Span-63" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.04em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span><span class="mo" id="MathJax-Span-64" style="font-family: MathJax_Main; padding-left: 0.222em;">−</span><span class="msubsup" id="MathJax-Span-65" style="padding-left: 0.222em;"><span style="display: inline-block; position: relative; width: 1.141em; height: 0px;"><span style="position: absolute; clip: rect(3.154em, 1000.7em, 4.133em, -1000em); top: -3.982em; left: 0em;"><span class="mi" id="MathJax-Span-66" style="font-family: MathJax_Math; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span><span style="position: absolute; top: -3.832em; left: 0.584em;"><span class="mi" id="MathJax-Span-67" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">L</span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span></span><span class="mo" id="MathJax-Span-68" style="font-family: MathJax_Main;">)</span></span></span><span style="display: inline-block; width: 0px; height: 3.982em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.385em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -2.502em; border-left: 0px solid; width: 0px; height: 5.624em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true"><mtr><mtd><msub><mi>C</mi><mi>H</mi></msub><mfrac><mrow><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">d</mi></mrow><msub><mi>T</mi><mi>H</mi></msub></mrow><mrow><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">d</mi></mrow><mi>t</mi></mrow></mfrac></mtd><mtd><mi></mi><mo>=</mo><mo>−</mo><mi>κ</mi><mo stretchy="false">(</mo><msub><mi>T</mi><mi>H</mi></msub><mo>−</mo><msub><mi>T</mi><mi>L</mi></msub><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd><msub><mi>C</mi><mi>L</mi></msub><mfrac><mrow><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">d</mi></mrow><msub><mi>T</mi><mi>L</mi></msub></mrow><mrow><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">d</mi></mrow><mi>t</mi></mrow></mfrac></mtd><mtd><mi></mi><mo>=</mo><mi>κ</mi><mo stretchy="false">(</mo><msub><mi>T</mi><mi>H</mi></msub><mo>−</mo><msub><mi>T</mi><mi>L</mi></msub><mo stretchy="false">)</mo></mtd></mtr></mtable></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-1">\begin{align}
+\nonumber C_H\frac{\mathrm dT_H}{\mathrm dt} &= -\kappa(T_H - T_L)\\
+\nonumber C_L\frac{\mathrm dT_L}{\mathrm dt} &= \kappa(T_H - T_L)
+\end{align}</script>
+
+</div>
+
+</section>
+<section id="slide-orgfa2c0e2" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgfa2c0e2">Build the model – objects</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fe8019;">@parameters</span> t
+C1 = 15
+C2 = 15
+<span style="color: #fe8019;">@named</span> mass1 = HeatCapacitor(C = C1, T_start = 373.15)
+<span style="color: #fe8019;">@named</span> mass2 = HeatCapacitor(C = C2, T_start = 273.15)
+<span style="color: #fe8019;">@named</span> conduction = ThermalConductor(G = 10)
+<span style="color: #fe8019;">@named</span> Tsensor1 = TemperatureSensor()
+<span style="color: #fe8019;">@named</span> Tsensor2 = TemperatureSensor()
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org3e27329" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="org3e27329">Build the model – connections</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim="">connections = [
+    connect(mass1.port, conduction.port_a),
+    connect(conduction.port_b, mass2.port),
+    connect(mass1.port, Tsensor1.port),
+    connect(mass2.port, Tsensor2.port),
+]
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org9c1b17f" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="org9c1b17f">Solve the model</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fe8019;">@named</span> model = ODESystem(connections, t,
+                         systems = [mass1, mass2, conduction, Tsensor1, Tsensor2])
+sys = structural_simplify(model)
+prob = ODEProblem(sys, Pair[], (0, 5.0))
+sol = solve(prob, Tsit5())
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org50b061c" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="org50b061c">The thermal equilibrium</h3>
+
+<div id="org246d63f" class="figure">
+<p><img src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/7470d6a80125d660d949cf3d8314b903724973ef.svg" alt="7470d6a80125d660d949cf3d8314b903724973ef.svg" class="org-svg">
+</p>
+</div>
+
+</section>
+</section>
+<section style="top: 350px; display: none;" aria-hidden="true" class="stack future" hidden="">
+<section id="slide-orgb44aa21" style="top: 350px; display: none;">
+<h2 id="orgb44aa21">Rabbits and wolves revisited</h2>
+<div class="outline-text-2" id="text-orgb44aa21">
+</div>
+</section>
+<section id="slide-orgcd5e14c" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgcd5e14c">Single trajectory – define the model</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fe8019;">@variables</span> t x(t)=1 y(t)=1 z(t)=2
+<span style="color: #fe8019;">@parameters</span> α=1.5 β=1.0 γ=3.0 δ=1.0
+D = Differential(t)
+eqs = [D(x) ~ α * x - β * x * y
+       D(y) ~ -γ * y + δ * x * y
+       z ~ x + y]
+<span style="color: #fe8019;">@named</span> sys = ODESystem(eqs, t)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgbe78eec" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgbe78eec">Single trajectory – solve the model</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">Symbolically Simplify the System</span>
+simpsys = structural_simplify(sys)
+<span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">Convert from a symbolic to a numerical problem to simulate</span>
+tspan = (0.0, 10.0)
+prob = ODEProblem(simpsys, [], tspan)
+<span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">Solve the ODE</span>
+sol = solve(prob, reltol=1e-8)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org1e615e1" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="org1e615e1">Single trajectory – result</h3>
+
+<div id="orgf8360ae" class="figure">
+<p><img src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/458984d240013b43405c17594f896e4f37b69873.svg" alt="458984d240013b43405c17594f896e4f37b69873.svg" class="org-svg">
+</p>
+</div>
+
+</section>
+<section id="slide-orgb15be13" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgb15be13">Ensemble solution – different initial values</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">Function to set different initial conditions for each problem in the ensemble</span>
+initial_conditions = [[x,y] <span style="color: #fb4933;">for</span> x in LinRange(3,6,1000) <span style="color: #fb4933;">for</span> y <span style="color: #fb4933;">in</span> LinRange(3,6,100)];
+<span style="color: #fb4933;">function</span> <span style="color: #fabd2f;">prob_func</span>(prob, i, repeat)
+    remake(prob, u0 = initial_conditions[i])
+<span style="color: #fb4933;">end</span>
+ensemble_prob = EnsembleProblem(prob, prob_func = prob_func)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgafb3f52" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgafb3f52">Ensemble solution – solve the model</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fe8019;">@time</span> sim = solve(ensemble_prob, Tsit5(), EnsembleThreads(), trajectories = 100000, reltol=1e-8);
+</code></pre>
+</div>
+<p>
+26.808094 seconds
+<img src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/21a279939ce6593bfdc2d69aaae03aab4adaca64.svg" alt="21a279939ce6593bfdc2d69aaae03aab4adaca64.svg" class="org-svg">
+</p>
+
+</section>
+<section id="slide-org0f63964" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="org0f63964">Ensemble solution – GPU accelerated calculation</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fb4933;">using</span> DiffEqGPU
+ensemble_prob = EnsembleProblem(prob, prob_func = prob_func, safetycopy = <span style="color: #d3869b;">false</span>)
+<span style="color: #fe8019;">@time</span> sim_gpu = solve(ensemble_prob, Tsit5(), 
+                      EnsembleGPUArray(CUDA.CUDABackend()), trajectories = 100000, reltol=1e-8, saveat = 1.0f0);
+</code></pre>
+</div>
+<p>
+17.616470 seconds
+</p>
+
+
+</section>
+<section id="slide-orgff2461b" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orgff2461b">Stochastic Differential Equations – define the model</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fb4933;">using</span> ModelingToolkit, StochasticDiffEq
+<span style="color: #fe8019;">@parameters</span> sigma
+<span style="color: #fe8019;">@variables</span> t x(t)
+D = Differential(t)
+eqs = [D(x) ~ 0]
+noiseeqs = [1]
+<span style="color: #fe8019;">@named</span> de = SDESystem(eqs, noiseeqs, t, [x], []);
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org13fe44a" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="org13fe44a">Ensemble path and its statistics</h3>
+<div class="org-src-container">
+
+<pre class="src src-julia"><code trim=""><span style="color: #fe8019;">@time</span> sim_sde = solve(ensemble_prob_sde, SOSRI(), EnsembleThreads(), trajectories = 100000, reltol=1e-8);
+<span style="color: #fb4933;">using</span> Statistics
+num_time_steps = length(sim_sde[1].t)
+variance_t = zeros(num_time_steps)
+
+<span style="color: #fb4933;">for</span> i <span style="color: #fb4933;">in</span> 1:num_time_steps
+    displacement_at_i = [sim_sde[j].u[i][1] <span style="color: #fb4933;">for</span> j <span style="color: #fb4933;">in</span> 1:length(sim_sde)]
+    variance_t[i] = var(displacement_at_i)
+<span style="color: #fb4933;">end</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orga53630c" class="future" aria-hidden="true" style="top: 350px; display: none;">
+<h3 id="orga53630c">Normal diffusion</h3>
+
+<div id="org2be32c6" class="figure">
+<p><img src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/0dc820869be120fd77e19352e776e65af95941a9.svg" alt="0dc820869be120fd77e19352e776e65af95941a9.svg" class="org-svg">
+</p>
+</div>
+</section>
+</section>
+</div>
+<div class="backgrounds"><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" style="display: block;" data-controls-layout="bottom-right" data-controls-back-arrows="faded"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" class="aria-status" aria-live="polite" aria-atomic="true">Dabbling in Modeling Toolkit of Julia kepu 2023-06-25 Sun 14:33 </div></div>
+<script src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/reveal.js"></script>
+<script src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/markdown.js"></script>
+<script src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/zoom.js"></script>
+<script src="Dabbling%20in%20Modeling%20Toolkit%20of%20Julia_files/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes]
+});
+
+</script>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Size4, sans-serif;"></div></div></body></html>
