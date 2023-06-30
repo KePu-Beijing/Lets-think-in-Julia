@@ -143,7 +143,7 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 <body style="transition: transform 0.8s ease 0s; --slide-width: 960px; --slide-height: 700px; --slide-scale: 2;" class="reveal-viewport"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
 <div class="reveal slide center focused has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style="cursor: none;">
 <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(2);">
-<section id="sec-title-slide" style="top: 257.5px; display: block;" class="present"><h1 class="title">Understanding GPT by Julia</h1><p class="subtitle"></p>
+<section id="sec-title-slide" style="top: 257.5px; display: none;" class="past" aria-hidden="true" hidden=""><h1 class="title">Understanding GPT by Julia</h1><p class="subtitle"></p>
 <h2 class="author">kepu</h2><h2 class="date">2023-06-18 Sun 14:27</h2>
 </section>
 <style>
@@ -153,9 +153,9 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 .reveal  li {font-size:80%;}
 </style>
 
-<section style="top: 0px; display: block;" aria-hidden="true" class="stack future" hidden="">
-<section id="slide-org66b2a1c" style="top: 176px; display: block;">
-<h2 id="org66b2a1c">Recap – The roles of scientific computing in research</h2>
+<section style="top: 0px; display: block;" class="stack past" data-previous-indexv="0" aria-hidden="true" hidden="">
+<section id="slide-org17b1d7b" style="top: 135px; display: block;" class="" data-fragment="2" aria-hidden="true">
+<h2 id="org17b1d7b">Recap – The roles of scientific computing in research</h2>
 <div>
 <span class="MathJax_Preview" style="color: inherit;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 13.832em; display: inline-block;"><span style="display: inline-block; position: relative; width: 11.149em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(0.892em, 1011.15em, 3.375em, -1000em); top: -2.379em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.109em;"></span></span><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-5" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="texatom" id="MathJax-Span-6"><span class="mrow" id="MathJax-Span-7"><span class="mo" id="MathJax-Span-8" style="font-family: MathJax_Main;">|</span></span></span><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math; font-style: italic;">D</span><span class="mo" id="MathJax-Span-10" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-11" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mfrac" id="MathJax-Span-12" style="padding-left: 0.278em;"><span style="display: inline-block; position: relative; width: 6.06em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(3.181em, 1005.85em, 4.302em, -1000em); top: -4.668em; left: 50%; margin-left: -2.97em;"><span class="mrow" id="MathJax-Span-13"><span class="mi" id="MathJax-Span-14" style="font-family: MathJax_Math; font-style: italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.109em;"></span></span><span class="mo" id="MathJax-Span-15" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math; font-style: italic;">D</span><span class="texatom" id="MathJax-Span-17"><span class="mrow" id="MathJax-Span-18"><span class="mo" id="MathJax-Span-19" style="font-family: MathJax_Main;">|</span></span></span><span class="mi" id="MathJax-Span-20" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-21" style="font-family: MathJax_Main;">)</span><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math; font-style: italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.109em;"></span></span><span class="mo" id="MathJax-Span-23" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-24" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-25" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.181em, 1002.26em, 4.302em, -1000em); top: -3.306em; left: 50%; margin-left: -1.179em;"><span class="mrow" id="MathJax-Span-26"><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math; font-style: italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.109em;"></span></span><span class="mo" id="MathJax-Span-28" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-29" style="font-family: MathJax_Math; font-style: italic;">D</span><span class="mo" id="MathJax-Span-30" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(0.948em, 1006.06em, 1.129em, -1000em); top: -1.289em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 3px solid; width: 6.06em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.069em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.379em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -1.186em; border-left: 0px solid; width: 0px; height: 2.979em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>P</mi><mo stretchy="false">(</mo><mi>H</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>D</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>H</mi><mo stretchy="false">)</mo><mi>P</mi><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">)</mo></mrow><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mo stretchy="false">)</mo></mrow></mfrac></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-1">\begin{equation}
 \nonumber P(H|D) = \frac{P(D|H)P(H)}{P(D)}
@@ -163,31 +163,31 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 
 </div>
 <ul>
-<li class="fragment appear" data-fragment-index="0"><b>Induction</b>: Explorative data analysis and modeling – <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-31" style="width: 1.11em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.882em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.61em, 1000.88em, 2.445em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-32"><span class="mi" id="MathJax-Span-33" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.031em; border-left: 0px solid; width: 0px; height: 0.909em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">H</script></li>
-<li class="fragment appear" data-fragment-index="1">Deduction: Predictions from hypotheses – <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-34" style="width: 4.386em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.528em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.543em, 1003.43em, 2.695em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-35"><span class="mi" id="MathJax-Span-36" style="font-family: MathJax_Math; font-style: italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.109em;"></span></span><span class="mo" id="MathJax-Span-37" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-38" style="font-family: MathJax_Math; font-style: italic;">D</span><span class="texatom" id="MathJax-Span-39"><span class="mrow" id="MathJax-Span-40"><span class="mo" id="MathJax-Span-41" style="font-family: MathJax_Main;">|</span></span></span><span class="mi" id="MathJax-Span-42" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-43" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.341em; border-left: 0px solid; width: 0px; height: 1.302em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>H</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-3">P(D|H)</script></li>
-<li class="fragment appear" data-fragment-index="2">Falsification: Collecting data under the premises – <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-44" style="width: 1.035em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.832em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.61em, 1000.81em, 2.445em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-45"><span class="mi" id="MathJax-Span-46" style="font-family: MathJax_Math; font-style: italic;">D</span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.031em; border-left: 0px solid; width: 0px; height: 0.909em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">D</script></li>
+<li class="fragment appear visible" data-fragment-index="0"><b>Induction</b>: Explorative data analysis and modeling – <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-31" style="width: 1.11em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.882em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.61em, 1000.88em, 2.445em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-32"><span class="mi" id="MathJax-Span-33" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.031em; border-left: 0px solid; width: 0px; height: 0.909em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">H</script></li>
+<li class="fragment appear visible" data-fragment-index="1">Deduction: Predictions from hypotheses – <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-34" style="width: 4.386em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.528em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.543em, 1003.43em, 2.695em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-35"><span class="mi" id="MathJax-Span-36" style="font-family: MathJax_Math; font-style: italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.109em;"></span></span><span class="mo" id="MathJax-Span-37" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-38" style="font-family: MathJax_Math; font-style: italic;">D</span><span class="texatom" id="MathJax-Span-39"><span class="mrow" id="MathJax-Span-40"><span class="mo" id="MathJax-Span-41" style="font-family: MathJax_Main;">|</span></span></span><span class="mi" id="MathJax-Span-42" style="font-family: MathJax_Math; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-43" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.341em; border-left: 0px solid; width: 0px; height: 1.302em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>H</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-3">P(D|H)</script></li>
+<li class="fragment appear visible" data-fragment-index="2">Falsification: Collecting data under the premises – <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-44" style="width: 1.035em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.832em; height: 0px; font-size: 124%;"><span style="position: absolute; clip: rect(1.61em, 1000.81em, 2.445em, -1000em); top: -2.369em; left: 0em;"><span class="mrow" id="MathJax-Span-45"><span class="mi" id="MathJax-Span-46" style="font-family: MathJax_Math; font-style: italic;">D</span></span><span style="display: inline-block; width: 0px; height: 2.369em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.031em; border-left: 0px solid; width: 0px; height: 0.909em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">D</script></li>
 
 </ul>
 
 </section>
 </section>
-<section style="top: 0px; display: block;" aria-hidden="true" class="stack future" hidden="">
-<section id="slide-orgd8fc208" style="top: 316px; display: block;">
-<h2 id="orgd8fc208">Large Language Models, they are everywhere!</h2>
-<div class="outline-text-2" id="text-orgd8fc208">
+<section style="top: 0px; display: block;" class="stack past" data-previous-indexv="2" aria-hidden="true" hidden="">
+<section id="slide-orga3fd087" style="top: 316px; display: none;" class="past" aria-hidden="true" hidden="">
+<h2 id="orga3fd087">Large Language Models, they are everywhere!</h2>
+<div class="outline-text-2" id="text-orga3fd087">
 </div>
 </section>
-<section id="slide-orgb1a98c1" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h3 id="orgb1a98c1">Prompt engineer</h3>
+<section id="slide-orge090aec" class="past" style="top: 0px; display: block;" aria-hidden="true" hidden="">
+<h3 id="orge090aec">Prompt engineer</h3>
 
-<div id="org0932162" class="figure">
+<div id="org6539406" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/2023-06-18_14-52-37_screenshot.png" alt="2023-06-18_14-52-37_screenshot.png">
 </p>
 </div>
 
 </section>
-<section id="slide-org28cf7aa" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h3 id="org28cf7aa">Is there some law governing the behavior of LLM?</h3>
+<section id="slide-orgb36d6bf" class="" style="top: 273px; display: block;" aria-hidden="true">
+<h3 id="orgb36d6bf">Is there some law governing the behavior of LLM?</h3>
 <ul>
 <li>Effective theory of LLM</li>
 <li>Stochastic dynamics</li>
@@ -195,14 +195,14 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 </ul>
 </section>
 </section>
-<section style="top: 350px; display: none;" aria-hidden="true" class="stack future" hidden="">
-<section id="slide-org192296e" style="top: 350px; display: none;">
-<h2 id="org192296e">Word-level probability distribution</h2>
-<div class="outline-text-2" id="text-org192296e">
+<section style="top: 0px; display: block;" class="stack present" data-previous-indexv="7">
+<section id="slide-orgcc9978b" style="top: 316px; display: none;" class="past" aria-hidden="true" hidden="">
+<h2 id="orgcc9978b">Word-level probability distribution</h2>
+<div class="outline-text-2" id="text-orgcc9978b">
 </div>
 </section>
-<section id="slide-orgd53b103" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h3 id="orgd53b103">Get multiple completion from OpenAI at once</h3>
+<section id="slide-orgab0ba6a" class="past" style="top: 195.5px; display: none;" aria-hidden="true" hidden="">
+<h3 id="orgab0ba6a">Get multiple completion from OpenAI at once</h3>
 <div class="org-src-container">
 
 <pre class="src src-julia"><code trim="">response = create_completion(
@@ -217,31 +217,31 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 </div>
 
 </section>
-<section id="slide-org317c13c" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h4 id="org317c13c">Empirical distribution</h4>
+<section id="slide-orgd22bc4f" class="past" style="top: 80.5px; display: none;" aria-hidden="true" hidden="">
+<h4 id="orgd22bc4f">Empirical distribution</h4>
 
-<div id="orga671c82" class="figure">
+<div id="org5a36333" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/1b5d8f7ea2407ee021a77bd25fc7387c0d31b735.svg" alt="1b5d8f7ea2407ee021a77bd25fc7387c0d31b735.svg" class="org-svg">
 </p>
 </div>
 
 </section>
-<section id="slide-org2105765" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h4 id="org2105765">Model distribution</h4>
+<section id="slide-orgfb21adc" class="past" style="top: 80.5px; display: none;" aria-hidden="true" hidden="">
+<h4 id="orgfb21adc">Model distribution</h4>
 
-<div id="org2a2cd49" class="figure">
+<div id="orgbbab296" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/9a48d29a099aa07e9f911a3d5f50aba95c62c5b7.svg" alt="9a48d29a099aa07e9f911a3d5f50aba95c62c5b7.svg" class="org-svg">
 </p>
 </div>
 
 </section>
-<section id="slide-org0f7dd3a" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h3 id="org0f7dd3a">The role of temperature</h3>
-<div class="outline-text-3" id="text-org0f7dd3a">
+<section id="slide-org394f76b" class="past" style="top: 316px; display: none;" aria-hidden="true" hidden="">
+<h3 id="org394f76b">The role of temperature</h3>
+<div class="outline-text-3" id="text-org394f76b">
 </div>
 </section>
-<section id="slide-org0fdf8f7" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h4 id="org0fdf8f7">Empirical distribution (T=0)</h4>
+<section id="slide-org7534a61" class="past" style="top: 251.5px; display: none;" aria-hidden="true" hidden="">
+<h4 id="org7534a61">Empirical distribution (T=0)</h4>
 <div class="org-src-container">
 
 <pre class="src src-julia"><code trim="">empirical_distribution_zero_temperature
@@ -251,45 +251,45 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
    " telling" =&gt; 100
 </pre>
 </section>
-<section id="slide-org43291e1" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h4 id="org43291e1">Model distribution (T = 0)</h4>
+<section id="slide-org8d0bc91" class="past" style="top: 80.5px; display: block;" aria-hidden="true" hidden="">
+<h4 id="org8d0bc91">Model distribution (T = 0)</h4>
 
-<div id="orge15e5d3" class="figure">
+<div id="org185b2eb" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/64f0f71151f6466ac85553fca08f6705fd804e71.svg" alt="64f0f71151f6466ac85553fca08f6705fd804e71.svg" class="org-svg">
 </p>
 </div>
 
 </section>
-<section id="slide-org41bd05a" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h4 id="org41bd05a">Empirical distribution (T=2)</h4>
+<section id="slide-orgc152310" class="past" style="top: 80.5px; display: block;" aria-hidden="true" hidden="">
+<h4 id="orgc152310">Empirical distribution (T=2)</h4>
 
-<div id="orgc595b74" class="figure">
+<div id="orgf486a7c" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/c3ba1bb92065ae5248b996f2229b2d6a30f6c544.svg" alt="c3ba1bb92065ae5248b996f2229b2d6a30f6c544.svg" class="org-svg">
 </p>
 </div>
 </section>
-<section id="slide-orgfdad103" class="future" aria-hidden="true" style="top: 350px; display: none;">
-<h4 id="orgfdad103">Model distribution (T = 2)</h4>
+<section id="slide-orgc590806" class="present" style="top: 80.5px; display: block;">
+<h4 id="orgc590806">Model distribution (T = 2)</h4>
 
-<div id="org140ec52" class="figure">
+<div id="orgc8cdc58" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/22aa7a788dc7c8089a2954423c37c60e18921416.svg" alt="22aa7a788dc7c8089a2954423c37c60e18921416.svg" class="org-svg">
 </p>
 </div>
 </section>
 </section>
-<section style="top: 350px; display: none;" aria-hidden="true" class="stack future" hidden="">
-<section id="slide-orgaebbeb9" style="top: 350px; display: none;">
-<h2 id="orgaebbeb9">Trajectory of generating a sentence</h2>
+<section style="top: 0px; display: block;" aria-hidden="true" class="stack future" hidden="">
+<section id="slide-org496dd83" style="top: 80.5px; display: block;">
+<h2 id="org496dd83">Trajectory of generating a sentence</h2>
 
-<div id="org3043e66" class="figure">
+<div id="org81c0237" class="figure">
 <p><img src="Understanding%20GPT%20by%20Julia_files/a4870ad2f78a896399b5099b7618f639ab3109f3.svg" alt="a4870ad2f78a896399b5099b7618f639ab3109f3.svg" class="org-svg">
 </p>
 </div>
 </section>
 </section>
-<section style="top: 350px; display: none;" aria-hidden="true" class="stack future" hidden="">
-<section id="slide-orga6df1fd" style="top: 350px; display: none;">
-<h2 id="orga6df1fd">Our hypotheses</h2>
+<section style="top: 0px; display: block;" aria-hidden="true" class="stack future" hidden="">
+<section id="slide-org9a82ad7" style="top: 210px; display: block;">
+<h2 id="org9a82ad7">Our hypotheses</h2>
 <ul>
 <li class="fragment appear" data-fragment-index="0">The probability for each word is set for the same prompt</li>
 <li class="fragment appear" data-fragment-index="1"><i>Temperature</i> parameter is not related to the training of the model, but a way to transform the raw probability</li>
@@ -299,10 +299,10 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 </section>
 </section>
 </div>
-<div class="backgrounds"><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" style="display: block;" data-controls-layout="bottom-right" data-controls-back-arrows="faded"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
-			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
-			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
-			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" class="aria-status" aria-live="polite" aria-atomic="true">Understanding GPT by Julia kepu 2023-06-18 Sun 14:27 </div></div>
+<div class="backgrounds"><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background stack past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" style="display: block;" data-controls-layout="bottom-right" data-controls-back-arrows="faded"><button class="navigate-left enabled" aria-label="previous slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up enabled" aria-label="above slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0.866667);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" class="aria-status" aria-live="polite" aria-atomic="true">Model distribution (T = 2) </div></div>
 <script src="Understanding%20GPT%20by%20Julia_files/reveal.js"></script>
 <script src="Understanding%20GPT%20by%20Julia_files/markdown.js"></script>
 <script src="Understanding%20GPT%20by%20Julia_files/zoom.js"></script>
